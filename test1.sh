@@ -8,7 +8,7 @@ echo "Enter second number:"
 read num2
 
 # Ask for the operation
-echo "Choose operation: add / sub / mul"
+echo "Choose operation: add / sub / mul / div"
 read op
 
 # Perform calculation based on operation
@@ -25,7 +25,15 @@ case $op in
         result=$((num1 * num2))
         echo "Result of multiplication: $result"
         ;;
+    div)
+        if [ $num2 -eq 0 ]; then
+            echo "Error: Division by zero is not allowed."
+        else
+            result=$((num1 / num2))
+            echo "Result of division: $result"
+        fi
+        ;;
     *)
-        echo "Invalid operation. Please choose add, sub, or mul."
+        echo "Invalid operation. Please choose add, sub, mul, or div."
         ;;
 esac
